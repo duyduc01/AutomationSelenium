@@ -1,0 +1,24 @@
+
+
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.devtools.DevTools;
+
+public class NetworkLogActivity {
+	
+	System.setProperty("webdriver.chrome.driver","E:\\Drive\\Automation test\\Selenium/chromedriver.exe");// t530
+
+	ChromeOptions options = new ChromeOptions();
+	 
+	// Launch ChromeDriver with the options
+    ChromeDriver driver = new ChromeDriver(options);
+	
+	
+	
+
+	DevTools devTools = driver.getDevTools();
+
+	devTools.createSession();// create session
+	
+	
+}

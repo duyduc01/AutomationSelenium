@@ -1,0 +1,71 @@
+package gjs.TestComponents;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.time.Duration;
+import java.util.Properties;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
+
+import gjs.SeleniumFrameworkDesign.pageobjects.LangdingPage;
+
+public class BaseTest {
+	
+	public WebDriver driver;
+	public LangdingPage langdingPage;
+	
+	public WebDriver initializeDriver() throws IOException
+	{	
+		//properties class
+		Properties prop= new Properties();
+		FileInputStream fis = new FileInputStream(System.getProperty("user.dir")+"\\src\\test\\java\\gjs\\resources\\GlobalData.properties");
+		prop.load(fis);
+		String browserName=prop.getProperty("browser");
+		
+		if(browserName.equalsIgnoreCase("chrome"))
+		{
+			System.setProperty("webdriver.chrome.driver", "E:\\Drive\\Automation test\\Selenium/chromedriver.exe");// t530
+			 driver = new ChromeDriver();
+			
+		}
+		else if(browserName.equalsIgnoreCase("firefox"))
+		{
+			
+		}
+		else if(browserName.equalsIgnoreCase("edge"))
+		{
+			
+		}
+		
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+		driver.manage().window().maximize();
+		return driver;
+	}
+	
+	
+	@BeforeMethod
+	public LangdingPage launchApplication() throws IOException
+	{
+		driver = initializeDriver();
+		langdingPage = new LangdingPage(driver);
+		langdingPage.goTo();
+		return langdingPage;
+		
+	}
+	
+	@AfterMethod
+	public void close() throws InterruptedException
+	{
+		System.out.println("done");
+		Thread.sleep(1000);
+		driver.quit();
+	}
+
+}

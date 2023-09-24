@@ -1,0 +1,62 @@
+package gjs.SeleniumFrameworkDesign;
+
+import java.time.Duration;
+import java.util.List;
+import java.util.NoSuchElementException;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class StandAloneTest {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+		driver.get("https://rahulshettyacademy.com/client");
+
+		// #### login
+		driver.findElement(By.xpath("//*[@id='userEmail']")).sendKeys("duyduc01@gmail.com");
+//		driver.findElement(By.xpath(null))
+		driver.findElement(By.xpath("//*[@id='userPassword']")).sendKeys("Daihocngoai20");
+		driver.findElement(By.xpath("//*[@id='login']")).click();
+
+		// Get products
+		String pName = "zara";
+		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//*[@class='card']//b")));
+		List<WebElement> products = driver.findElements(By.xpath("//*[@class='card']"));
+
+		WebElement prod = products.stream()
+				.filter(p -> p.findElement(By.cssSelector("b")).getText().toLowerCase().contains(pName)).findFirst()
+				.orElse(null);
+		prod.findElement(By.xpath("//*[@class='card']//button[contains(.,'Cart')]")).click();
+
+		// Get products added to cart
+		while(true)
+		{
+			try {
+				driver.findElement(By.xpath("//button[@routerlink='/dashboard/cart']")).click();
+			}catch(NoSuchElementException ex)
+			{
+				break;
+			}
+		}
+		
+		
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='cartSection']//h3")));
+		List<WebElement> cartProducts = driver.findElements(By.xpath("//div[@class='cartSection']//h3"));
+		Boolean match = cartProducts.stream().anyMatch(p -> p.getText().toLowerCase().contains(pName));
+		System.out.print(match);
+
+	}
+
+}

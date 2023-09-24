@@ -1,0 +1,40 @@
+package SelTest;
+
+import java.time.Duration;
+import java.util.Iterator;
+import java.util.Set;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class handleWindows extends Common {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		WebDriver driver = openWeb("chrome","https://rahulshettyacademy.com/loginpagePractise/");
+		WebDriverWait expw = new WebDriverWait(driver, Duration.ofSeconds(5));
+		
+		//click the link open new windows
+		expw.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//*[@class='blinkingText']")));
+		driver.findElement(By.xpath("//*[@class='blinkingText']")).click();
+		
+		//interator the windowws
+		Set<String> windows=driver.getWindowHandles();
+		Iterator<String> iter = windows.iterator();
+		String parWid = iter.next();
+		String chilWid = iter.next();
+		driver.switchTo().window(chilWid);
+//		expw.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//a[contains(@href,'mailto')]")));
+		String email = driver.findElement(By.xpath("//a[contains(@href,'mailto')]")).getText();
+		driver.switchTo().window(parWid);
+		WebElement inputUsername = driver.findElement(By.xpath("//*[@id='username']"));
+		inputUsername.sendKeys(email);
+		
+		out(inputUsername.getAttribute("value"));
+		driver.quit();
+	}
+
+}

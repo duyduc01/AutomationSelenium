@@ -1,0 +1,20 @@
+package SelTest;
+
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class SelTest {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//Invoking browser
+		
+		//set chromedriver
+		System.setProperty("webdriver.chrome.driver", "C:/Users/Administrator/Downloads/chromedriver-win64/chromedriver.exe");
+		ChromeDriver driver = new ChromeDriver();
+		
+	}
+
+}

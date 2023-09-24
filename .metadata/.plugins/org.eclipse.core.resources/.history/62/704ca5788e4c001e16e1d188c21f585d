@@ -1,0 +1,12 @@
+package gjs.TestComponents;
+
+public class BaseTest {
+	
+	
+	
+	public void initializeDriver()
+	{
+		
+	}
+
+}

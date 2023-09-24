@@ -1,0 +1,30 @@
+package SelTest;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class Mouse extends Common {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		WebDriver driver= openWeb("chrome","https://www.amazon.fr");
+		WebDriverWait exwait = new WebDriverWait(driver, Duration.ofSeconds(5));
+		exwait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='sp-cc-accept']")));
+		driver.findElement(By.xpath("//*[@id='sp-cc-accept']")).click();
+		
+		// Mouse
+		Actions mmove = new Actions(driver);
+		mmove.moveToElement(driver.findElement(By.xpath("//*[@id='nav-link-accountList']"))).build().perform();
+		exwait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[contains(@style,'block') and contains(@class,'coreFlyout')]")));
+		out("mouse has moved");
+		driver.quit();		
+		
+	}
+	
+
+}

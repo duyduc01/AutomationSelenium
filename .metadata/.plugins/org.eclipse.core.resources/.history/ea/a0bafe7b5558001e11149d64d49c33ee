@@ -1,0 +1,45 @@
+import java.io.IOException;
+import java.time.Duration;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.logging.LogEntries;
+import org.openqa.selenium.logging.LogEntry;
+import org.openqa.selenium.logging.LogType;
+//import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class FileUpload {
+
+	static ChromeDriver driver;
+
+	public static void main(String[] args) throws InterruptedException, IOException {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver", "E:\\Drive\\Automation test\\Selenium/chromedriver.exe");// t530
+
+		ChromeOptions options = new ChromeOptions();
+		
+
+		// Launch ChromeDriver with the options
+		driver = new ChromeDriver(options);
+		Impwait(1);
+		
+		driver.get("https://smallpdf.com/excel-to-pdf");
+		driver.findElement(By.xpath("//span[.='Choose Files']")).click();
+		Thread.sleep(3000);
+		Runtime.getRuntime().exec("\"C:\\Users\\Administrator\\Documents\\fileUpload.exe\"");
+		WebDriverWait wait = new WebDriverWait(driver,10);
+		
+	}
+	
+	public static void out(Object o) {
+		System.out.println(o.toString());
+	}
+	public static void Impwait(int i)
+	{
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(i));
+	}
+
+}

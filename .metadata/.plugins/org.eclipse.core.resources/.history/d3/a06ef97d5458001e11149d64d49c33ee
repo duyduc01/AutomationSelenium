@@ -1,0 +1,39 @@
+import java.time.Duration;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.logging.LogEntries;
+import org.openqa.selenium.logging.LogEntry;
+import org.openqa.selenium.logging.LogType;
+
+public class FileUpload {
+
+	static ChromeDriver driver;
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver", "E:\\Drive\\Automation test\\Selenium/chromedriver.exe");// t530
+
+		ChromeOptions options = new ChromeOptions();
+		
+
+		// Launch ChromeDriver with the options
+		driver = new ChromeDriver(options);
+		Impwait(1);
+		
+		driver.get("https://smallpdf.com/excel-to-pdf");
+		driver.findElement(By.xpath("//span[.='Choose Files']")).click();
+
+	}
+	
+	public static void out(Object o) {
+		System.out.println(o.toString());
+	}
+	public static void Impwait(int i)
+	{
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(i));
+	}
+
+}

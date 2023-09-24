@@ -1,0 +1,45 @@
+package gjs.TestComponents;
+
+import java.io.FileInputStream;
+import java.time.Duration;
+import java.util.Properties;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class BaseTest {
+	
+	public WebDriver driver;
+	
+	public void initializeDriver()
+	{	
+		//properties class
+		Properties prop= new Properties();
+		FileInputStream fis = new FileInputStream();
+		prop.load(fis);
+		String browserNAme=prop.getProperty("browser");
+		
+		
+		
+		if(browserName.equalsIgnoreCase("chrome"))
+		{
+			System.setProperty("webdriver.chrome.driver", "E:\\Drive\\Automation test\\Selenium/chromedriver.exe");// t530
+			WebDriver driver = new ChromeDriver();
+			
+		}
+		else if(browserName.equalsIgnoreCase("firefox"))
+		{
+			
+		}
+		else if(browserName.equalsIgnoreCase("edge"))
+		{
+			
+		}
+		
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+		driver.manage().window().maximize();
+	}
+
+}

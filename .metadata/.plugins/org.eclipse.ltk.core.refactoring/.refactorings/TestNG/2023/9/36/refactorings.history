@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;Common2.java&apos; to &apos;test.Common2.java&apos;&#x0D;&#x0A;- Original project: &apos;TestNG&apos;&#x0D;&#x0A;- Destination element: &apos;test.Common2.java&apos;&#x0D;&#x0A;- Original element: &apos;test.Common2.java&apos;" description="Copy compilation unit" destination="/src=/optional=/true=/=/maven.pomderived=/true=/&lt;test{Common2.java" element1="/src=/optional=/true=/=/maven.pomderived=/true=/&lt;test{Common2.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1693832368015" units="1" version="1.0"/>
+</session>

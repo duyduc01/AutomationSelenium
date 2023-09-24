@@ -1,0 +1,48 @@
+import java.time.Duration;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.devtools.DevTools;
+import org.openqa.selenium.devtools.v116.emulation.Emulation;
+
+public class CdpCommandsTest {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver",
+				"E:\\Drive\\Automation test\\Selenium\\chromeDriver/chromedriver.exe");// t530
+
+		ChromeDriver driver = new ChromeDriver();
+
+		DevTools devTools = driver.getDevTools();
+
+		devTools.createSession();// create session
+
+		// send commands to CDP
+		Map map = new HashMap();
+		map.put("width", 600);
+		map.put("height", 1000);
+		map.put("deviceScaleFactor", 50);
+		map.put("mobile", true);
+		
+		
+		driver.executeCdpCommand("Emulation.setDeviceMetricsOverride", map);
+//		devTools.send(Emulation.setDe);
+				
+				
+		driver.get("https://rahulshettyacademy.com/angularAppdemo/");
+		// click menu
+//		driver.findElement(By.xpath("//span[@class='navbar-toggler-icon']")).click();
+		driver.findElement(By.cssSelector(".navbar-toggler")).click();
+
+		Thread.sleep(3000);
+
+//		driver.findElement(By.xpath("//a[normalize-space()='Library']")).click();
+		driver.findElement(By.linkText("Library")).click();
+
+	}
+
+}

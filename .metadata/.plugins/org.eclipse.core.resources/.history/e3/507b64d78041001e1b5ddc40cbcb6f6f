@@ -1,0 +1,21 @@
+package SelTest;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class Mouse extends Common {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		WebDriver driver= openWeb("chrome","https://www.amazon.fr");
+		WebDriverWait exwait = new WebDriverWait(driver, Duration.ofSeconds(5));
+		exwait.until(ExpectedConditions.visibilityOfElementLocated("//*[@id='sp-cc-accept']"));
+		driver.findElement(By.xpath("//*[@id='sp-cc-accept']")).click();
+	}
+	
+
+}

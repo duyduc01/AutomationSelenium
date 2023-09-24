@@ -1,0 +1,16 @@
+package test;
+
+import org.testng.annotations.Test;
+
+public class ExtendCommon2 extends Common2 {
+
+	
+	@Test
+	public void testRun()
+	{
+		Common2 c=new Common2(3);
+		
+		System.out.println(c.increase());
+	}
+	
+}

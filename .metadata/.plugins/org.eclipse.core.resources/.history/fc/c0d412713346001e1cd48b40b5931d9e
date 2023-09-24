@@ -1,0 +1,54 @@
+package SelTest;
+
+import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
+public class ListCompare extends Common {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub
+
+		WebDriver driver = openWeb("chrome", "https://rahulshettyacademy.com/seleniumPractise/#/offers");
+
+//				Impwait(5);
+
+		WebDriverWait exwait = new WebDriverWait(driver, Duration.ofSeconds(5));
+
+		// Wait the element to be ready to click
+		exwait.until(ExpectedConditions.elementToBeClickable(By.xpath("//tr/th[1]")));
+
+		// Click on the column to sort
+		driver.findElement(By.xpath("//tr/th[1]")).click();
+
+		// Get list of sorted column as original
+//				List<WebElement> td=driver.findElements(By.xpath("//tr/td[1]"));
+		List<String> tdText = driver.findElements(By.xpath("//tr/td[1]")).stream().map(s -> s.getText())
+				.collect(Collectors.toList());
+//		List<String> td2 = driver.findElements(By.xpath("//tr/td[1]")).stream()
+//				.filter(e -> e.findElement(By.xpath("//tr/td[1]")).getText().collect(Collectors.toList());
+				
+//				ArrayList<String> td= new ArrayList(driver.findElements(By.xpath("//tr/td[1]")).Text);
+//				List<String> tdSorted=td.stream().sorted().collect(Collectors.toList());
+
+		// Sort the sorted column again
+		List<String> tdSorted = tdText.stream().sorted().collect(Collectors.toList());
+
+		// Compare 2 list to check
+
+//		Assert.assertNotEquals(tdText, tdSorted);
+		Assert.assertFalse(tdText.equals(tdSorted));
+
+	}
+
+}

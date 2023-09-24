@@ -1,0 +1,14 @@
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.devtools.DevTools;
+
+public class MobileEmulatorTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver", "E:\\Drive\\Automation test\\Selenium\\chromeDriver/chromedriver.exe");// t530
+		ChromeDriver driver = new ChromeDriver();
+		DevTools devTools = driver.getDevTools();
+		devTools.createSession();//create session
+	}
+
+}

@@ -1,0 +1,33 @@
+package SelTest;
+
+import java.time.Duration;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class Table extends Common {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		WebDriver driver = openWeb("chrome","https://rahulshettyacademy.com/AutomationPractice/");
+		WebDriverWait expWait = new WebDriverWait(driver, Duration.ofSeconds(5));
+		
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("window.scrollBy(0,500)");
+		
+//		List<WebElement> links = driver.findElements(By.xpath("//a"));
+//		out(links.size());
+		//++ open windows
+		
+	}
+
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2023-09-04T20:01:01 ICT" name="Default suite" finished-at="2023-09-04T20:01:01 ICT" duration-ms="62">
+    <groups>
+    </groups>
+    <test started-at="2023-09-04T20:01:01 ICT" name="Default test" finished-at="2023-09-04T20:01:01 ICT" duration-ms="62">
+      <class name="test.ExtendCommon2">
+        <test-method is-config="true" signature="beforetest()[pri:0, instance:test.ExtendCommon2@6fdbe764]" started-at="2023-09-04T20:01:01 ICT" name="beforetest" finished-at="2023-09-04T20:01:01 ICT" duration-ms="12" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforetest -->
+        <test-method signature="test()[pri:0, instance:test.ExtendCommon2@6fdbe764]" started-at="2023-09-04T20:01:01 ICT" name="test" finished-at="2023-09-04T20:01:01 ICT" duration-ms="6" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test -->
+        <test-method is-config="true" signature="aftertest()[pri:0, instance:test.ExtendCommon2@6fdbe764]" started-at="2023-09-04T20:01:01 ICT" name="aftertest" finished-at="2023-09-04T20:01:01 ICT" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- aftertest -->
+      </class> <!-- test.ExtendCommon2 -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

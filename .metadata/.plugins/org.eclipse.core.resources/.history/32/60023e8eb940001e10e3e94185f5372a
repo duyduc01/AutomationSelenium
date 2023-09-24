@@ -1,0 +1,43 @@
+package SelTest;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class CartEcommerce extends Common {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		
+		WebDriver driver = openWeb("chrome","https://rahulshettyacademy.com/seleniumPractise/");
+		
+		Impwait(10);
+		
+		// Get products in cart and click
+		List<WebElement> products = driver.findElements(By.xpath("//h4[@class=\"product-name\"]"));
+		
+		for(int i=0; i<products.size();i++)
+		{
+			String name = products.get(i).getText();
+			
+			if(name.contains("Cucumber"))
+			{
+				driver.findElements(By.xpath("//button[contains(text(),'ADD TO CART')]")).get(i).click();
+				break;
+			}
+		}
+		
+		
+		
+		
+		
+		
+		
+		sl(1000);
+//		driver.quit();
+		
+	}
+
+}

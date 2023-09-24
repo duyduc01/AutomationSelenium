@@ -1,0 +1,63 @@
+import java.time.Duration;
+import java.util.Dictionary;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.devtools.DevTools;
+import org.openqa.selenium.devtools.v116.emulation.Emulation;
+
+public class SetGeolocation {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver",
+				"E:\\Drive\\Automation test\\Selenium\\chromeDriver/chromedriver.exe");// t530
+
+		ChromeDriver driver = new ChromeDriver();
+
+		DevTools devTools = driver.getDevTools();
+
+		devTools.createSession();// create session
+
+		// send commands to CDP
+		
+		//grantpermission
+//		Map<List<String>, String> perm = new HashMap<>();
+//		String arr[]= {"geolocation"};
+//		 perm.add("permissions", arr[0]);
+//	        perm.put("setting", "granted");
+//	        perm.put("origin", "http://google.com");
+		
+//		driver.executeCdpCommand("Browser.grantPermissions", perm);	
+//		new PermissionType();
+		
+		
+		 // Geolocation must be enabled 
+	   
+		
+		Map map= new HashMap();
+		map.put("latitude", 46);
+		map.put("longitude", 4);
+		map.put("accuracy", 1);
+		
+		driver.executeCdpCommand("Emulation.setGeolocationOverride", map);
+		
+			
+	        
+	      
+		driver.get("http://google.com");
+		Thread.sleep(2000);		
+		
+		driver.findElement(By.name("q")).sendKeys("netflix", Keys.ENTER);
+		
+		driver.findElements(By.xpath("//a[@href='https://www.netflix.com/']")).get(0).click();
+		
+		
+	}
+
+}

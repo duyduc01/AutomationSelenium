@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete 7 resources" deleteContents="false" description="Delete 7 resources" element1="/org.eclipse.egit.doc" element2="/org.eclipse.epp.package.common" element3="/org.eclipse.epp.package.java" element4="/org.eclipse.m2e.archetype.common" element5="/org.eclipse.m2e.core.ui" element6="/org.eclipse.m2e.maven.runtime" element7="/org.eclipse.m2e.sourcelookup" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="7" stamp="1692686009746"/>
+</session>

@@ -1,0 +1,82 @@
+import java.time.Duration;
+import java.util.Arrays;
+import java.util.Dictionary;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.devtools.DevTools;
+import org.openqa.selenium.devtools.v115.browser.Browser;
+import org.openqa.selenium.devtools.v115.browser.model.PermissionType;
+import org.openqa.selenium.devtools.v116.emulation.Emulation;
+import org.openqa.selenium.remote.DesiredCapabilities;
+
+public class SetGeolocation {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver",
+				"E:\\Drive\\Automation test\\Selenium/chromedriver.exe");// t530
+
+		ChromeDriver driver = new ChromeDriver();
+
+		DevTools devTools = driver.getDevTools();
+
+		devTools.createSession();// create session
+
+		// send commands to CDP
+		
+		//grantpermission
+//		Map<List<String>, String> perm = new HashMap<>();
+//		
+//		List<PermissionType> arr= {"geolocation"};
+//		 perm.put("permissions", arr["geolocation"]);
+//	        perm.put("setting", "granted");
+//	        perm.put("origin", "http://google.com");
+	        	
+		
+//		public enum PermissionType {
+//		    @JsonProperty("geolocation") permissions
+//		}
+//	        devTools.send(Browser.grantPermissions(PermissionType, Optional.empty(), Optional.empty()));
+		 // Geolocation must be enabled 
+		HashMap params = new HashMap<>();
+		params.put("permissions", Arrays.asList("geolocation"));
+		params.put("origin", "http://google.com");
+	
+//	driver.executeCdpCommand("Browser.grantPermissions", params);
+		
+	
+		
+		
+	        
+		driver.navigate().to("https://google.com");
+//		driver.get("https://google.com");
+		
+		DesiredCapabilities caps = new DesiredCapabilities();
+		caps.setCapability("browserstack.geoLocation", "FR");
+		
+		Map map= new HashMap();
+		map.put("latitude", 42.1408845);
+		map.put("longitude", -72.5033907);
+		map.put("accuracy", 100);
+		
+		driver.executeCdpCommand("Emulation.setGeolocationOverride", map);
+		
+		
+		Thread.sleep(2000);		
+		
+		driver.findElement(By.name("q")).sendKeys("netflix", Keys.ENTER);
+		
+		driver.navigate().refresh();
+		
+		driver.findElements(By.xpath("//a[@href='https://www.netflix.com/']")).get(0).click();
+		
+		
+	}
+
+}

@@ -1,0 +1,23 @@
+package test;
+
+import org.testng.annotations.Test;
+
+public class EC2 extends Common2 {
+
+	
+	
+
+	public EC2(int x) {
+		super(x);
+		// TODO Auto-generated constructor stub
+	}
+
+	@Test
+	public void testRun()
+	{
+		EC2 c=new EC2(3);
+		
+		System.out.println(c.increase());
+	}
+	
+}

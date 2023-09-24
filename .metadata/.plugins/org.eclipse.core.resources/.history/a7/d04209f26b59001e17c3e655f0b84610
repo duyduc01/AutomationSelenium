@@ -1,0 +1,12 @@
+package GJW;
+
+public class TestDemo {
+	
+	
+	@Test
+	public void titleCheck()
+	{
+		Webdriver driver = new RemoteDriver();
+	}
+	
+}

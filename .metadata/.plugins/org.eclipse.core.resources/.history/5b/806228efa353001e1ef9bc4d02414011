@@ -1,0 +1,51 @@
+import java.util.Optional;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.devtools.DevTools;
+import org.openqa.selenium.devtools.v115.fetch.Fetch;
+import org.openqa.selenium.devtools.v116.network.Network;
+import org.openqa.selenium.devtools.v116.network.model.Request;
+import org.openqa.selenium.devtools.v116.network.model.Response;
+
+public class NetworkMocking {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver", "E:\\Drive\\Automation test\\Selenium/chromedriver.exe");// t530
+
+		ChromeOptions options = new ChromeOptions();
+
+		// Launch ChromeDriver with the options
+		ChromeDriver driver = new ChromeDriver(options);
+
+		DevTools devTools = driver.getDevTools();
+
+		devTools.createSession();// create session
+
+		devTools.send(Fetch.enable(Optional.empty(), Optional.empty()));
+
+		devTools.addListener(Fetch.requestPaused(), request -> {
+			if (request.getRequest().getUrl().contains("shetty")) {
+				String mockedURL = request.getRequest().getUrl().replace("=shetty", "mockup");
+
+				System.out.println(mockedURL);
+
+				devTools.send(Fetch.continueRequest(request.getRequestId(), Optional.of(mockedURL),
+						Optional.of(request.getRequest().getMethod()), Optional.empty(), Optional.empty(),
+						Optional.empty()));
+			}
+			else {
+				devTools.send(Fetch.continueRequest(request.getRequestId(), Optional.of(request.getRequest().getUrl()),
+						Optional.of(request.getRequest().getMethod()), Optional.empty(), Optional.empty(),
+						Optional.empty()));
+			}
+		});
+		driver.get("https://rahulshettyacademy.com/angularAppdemo");
+
+		driver.findElement(By.xpath("//button[normalize-space()='Virtual Library']")).click();
+
+	}
+
+}

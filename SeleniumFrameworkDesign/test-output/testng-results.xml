@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2023-09-23T00:03:11 ICT" name="Default suite" finished-at="2023-09-23T00:03:24 ICT" duration-ms="13286">
+    <groups>
+      <group name="error">
+        <method signature="ErrorValidations.LoginErrorValidation()[pri:0, instance:gjs.tests.ErrorValidations@cb0755b]" name="LoginErrorValidation" class="gjs.tests.ErrorValidations"/>
+      </group> <!-- error -->
+    </groups>
+    <test started-at="2023-09-23T00:03:11 ICT" name="Default test" finished-at="2023-09-23T00:03:24 ICT" duration-ms="13286">
+      <class name="gjs.tests.ErrorValidations">
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:gjs.tests.ErrorValidations@cb0755b]" started-at="2023-09-23T00:03:11 ICT" name="launchApplication" finished-at="2023-09-23T00:03:17 ICT" duration-ms="5472" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApplication -->
+        <test-method signature="LoginErrorValidation()[pri:0, instance:gjs.tests.ErrorValidations@cb0755b]" started-at="2023-09-23T00:03:17 ICT" name="LoginErrorValidation" finished-at="2023-09-23T00:03:17 ICT" duration-ms="609" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- LoginErrorValidation -->
+        <test-method is-config="true" signature="close()[pri:0, instance:gjs.tests.ErrorValidations@cb0755b]" started-at="2023-09-23T00:03:17 ICT" name="close" finished-at="2023-09-23T00:03:17 ICT" duration-ms="114" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close -->
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:gjs.tests.ErrorValidations@cb0755b]" started-at="2023-09-23T00:03:17 ICT" name="launchApplication" finished-at="2023-09-23T00:03:21 ICT" duration-ms="3440" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApplication -->
+        <test-method signature="ProductErrorValidation()[pri:0, instance:gjs.tests.ErrorValidations@cb0755b]" started-at="2023-09-23T00:03:21 ICT" name="ProductErrorValidation" finished-at="2023-09-23T00:03:24 ICT" duration-ms="3355" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ProductErrorValidation -->
+        <test-method is-config="true" signature="close()[pri:0, instance:gjs.tests.ErrorValidations@cb0755b]" started-at="2023-09-23T00:03:24 ICT" name="close" finished-at="2023-09-23T00:03:24 ICT" duration-ms="220" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close -->
+      </class> <!-- gjs.tests.ErrorValidations -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

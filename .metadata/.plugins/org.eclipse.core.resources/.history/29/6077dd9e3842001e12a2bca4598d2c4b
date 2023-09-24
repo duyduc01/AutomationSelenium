@@ -1,0 +1,36 @@
+package SelTest;
+
+import java.time.Duration;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class Scope extends Common {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		WebDriver driver = openWeb("chrome","https://rahulshettyacademy.com/AutomationPractice/");
+		WebDriverWait expWait = new WebDriverWait(driver, Duration.ofSeconds(5));
+		
+//		List<WebElement> links = driver.findElements(By.xpath("//a"));
+//		out(links.size());
+		
+		WebElement foDiv = driver.findElement(By.xpath("(//*[@id='gf-BIG']//ul)[1]"));
+//		out(foDiv.findElements(By.xpath(".//a")).size());
+		List<WebElement> links = foDiv.findElements(By.xpath(".//a"));
+		String keyChrod = Keys.chord(Keys.CONTROL, Keys.ENTER);
+		
+		for (int i=1; i<links.size();i++)
+		{
+			links.get(i).sendKeys(keyChrod);
+		}
+
+		
+
+	}
+
+}
