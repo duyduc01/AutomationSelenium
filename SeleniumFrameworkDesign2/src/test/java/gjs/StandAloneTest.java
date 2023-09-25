@@ -72,7 +72,7 @@ public class StandAloneTest {
 		String confirm = driver.findElement(By.xpath("//*[@class='hero-primary']")).getText();
 		Assert.assertTrue(confirm.equalsIgnoreCase("Thankyou for the order."));
 		System.out.println(confirm);
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		driver.quit();
 		
 		

@@ -1,16 +1,16 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 19.99 s <<< FAILURE! - in TestSuite
-GJW.TestDemo.titleCheck  Time elapsed: 12.155 s  <<< FAILURE!
+Tests run: 3, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 22.507 s <<< FAILURE! - in TestSuite
+GJW.TestDemo.titleCheck  Time elapsed: 13.494 s  <<< FAILURE!
 java.lang.AssertionError: expected [true] but found [false]
 	at GJW.TestDemo.titleCheck(TestDemo.java:23)
 
-GJW.TestDemo.titleCheck  Time elapsed: 14.012 s  <<< FAILURE!
+GJW.TestDemo.titleCheck  Time elapsed: 14.081 s  <<< FAILURE!
 java.lang.AssertionError: expected [true] but found [false]
 	at GJW.TestDemo.titleCheck(TestDemo.java:23)
 
-GJW.TestDemo.titleCheck  Time elapsed: 17.01 s  <<< FAILURE!
+GJW.TestDemo.titleCheck  Time elapsed: 19.633 s  <<< FAILURE!
 java.lang.AssertionError: expected [true] but found [false]
 	at GJW.TestDemo.titleCheck(TestDemo.java:23)
 
